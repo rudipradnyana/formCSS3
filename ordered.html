@@ -3,57 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konfirmasi Pemesanan Kamar</title>
+    <title>Pesanan Kamar Berhasil</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e9ecef; 
+            margin: 20px;
             padding: 20px;
-            text-align: center; 
+            background-color: #f4f4f4;
+            color: #333;
         }
-
         h1 {
-            color: #4CAF50; 
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.2em; 
-            color: #333; 
-        }
-
-        .container {
-            background-color: #fff; 
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: inline-block; 
-            margin-top: 50px; 
-        }
-
-        .back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50; 
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s; 
-        }
-
-        .back-button:hover {
-            background-color: #45a049; 
+            color: #4CAF50;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Pemesanan Kamar Berhasil!</h1>
-        <p>Terima kasih! Kamar Anda telah berhasil dipesan.</p>
-        <p>Jika Anda memiliki pertanyaan atau permintaan khusus, silakan hubungi kami.</p>
-        <a href="index.html" class="back-button">Kembali ke Form Pemesanan</a>
-    </div>
+    <h1>Pesanan Kamar Berhasil!</h1>
+    <p>Terima kasih, <span id="nama"></span>! Pesanan kamar Anda telah berhasil diterima.</p>
+    <p>Detail Pesanan:</p>
+    <ul>
+        <li>Email: <span id="email"></span></li>
+        <li>Nomor Telepon: <span id="nomor_telepon"></span></li>
+        <li>Tanggal Check-in: <span id="checkin"></span></li>
+        <li>Tanggal Check-out: <span id="checkout"></span></li>
+        <li>Jenis Kamar: <span id="jenis_kamar"></span></li>
+        <li>Jumlah Tamu: <span id="jumlah_tamu"></span></li>
+        <li>Sarapan: <span id="sarapan"></span></li>
+        <li>Permintaan Khusus: <span id="permintaan_khusus"></span></li>
+    </ul>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('nama').innerText = params.get('nama_pemesan') || 'Tidak diketahui';
+        document.getElementById('email').innerText = params.get('email') || 'Tidak diketahui';
+        document.getElementById('nomor_telepon').innerText = params.get('nomor_telepon') || 'Tidak diketahui';
+        document.getElementById('checkin').innerText = params.get('checkin') || 'Tidak diketahui';
+        document.getElementById('checkout').innerText = params.get('checkout') || 'Tidak diketahui';
+        document.getElementById('jenis_kamar').innerText = params.get('jenis_kamar') || 'Tidak diketahui';
+        document.getElementById('jumlah_tamu').innerText = params.get('jumlah_tamu') || 'Tidak diketahui';
+        document.getElementById('sarapan').innerText = params.get('sarapan') || 'Tidak diketahui';
+        document.getElementById('permintaan_khusus').innerText = params.get('permintaan_khusus') || 'Tidak diketahui';
+    </script>
 </body>
 </html>
